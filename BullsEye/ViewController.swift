@@ -9,19 +9,25 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var targetLabel: UILabel!
-    @IBOutlet weak var scoreLabel: UILabel!
-    var currentValue: Int = 50
+    @IBOutlet weak var scoreLabel: UILabel! // contador de pontos
+    @IBOutlet weak var roundLabel: UILabel!
+    
+    var currentValue: Int = 50 // iniciando no meio do slider
     var targetValue = 0
     var score = 0
+    var round = 0
     
     func updateLabels() {
     targetLabel.text = String(targetValue)
     scoreLabel.text = String(score)
+    roundLabel.text = String(round)
     }
     
     func startNewRound() {
+    round += 1 
     targetValue = Int.random(in: 1...100)
     currentValue = 50
     slider.value = Float(currentValue)
